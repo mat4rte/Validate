@@ -1,0 +1,26 @@
+.task-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #e0e0e0;
+    height: 50px;
+}
+
+.task-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 1px solid #e0e0e0;
+    height: 50px;
+}
+
+.task-main:hover{
+    background-color: #24832c;
+}
+
+.task-main{
+    border-radius: 40px;
+    margin-bottom: 5%;
+}
