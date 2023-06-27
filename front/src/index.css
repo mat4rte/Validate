@@ -9,8 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 500px;
-  margin: auto;
+  width: 100%;
+  margin: 1% 1% 1% 1%;
 }
 
 code {
