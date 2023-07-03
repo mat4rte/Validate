@@ -8,16 +8,21 @@ import Nav from "./components/ui/Nav/nav.js";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Nav />
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/tasks" element={<h1>Tasks</h1>} />
-        </Routes>
-      </BrowserRouter> */}
-    </>
+      <div className="body">
+        <div className="content mt-8">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<h1>Home</h1>} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/tasks" element={<Tasks />} />
+              {/* <Route path="/Habits" element={<Habits />} /> */}
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </div>
+    </div>
   );
 }
 
