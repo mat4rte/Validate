@@ -1,4 +1,4 @@
-import logo from "../../data/Validate.png";
+import logo from "../../data/validate_logo_nav.png";
 
 function Logo(props) {
   return (

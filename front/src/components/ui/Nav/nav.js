@@ -6,7 +6,7 @@ import "./nav.css";
 function Nav() {
   return (
     <>
-      <div className="navbar flex justify-left mx-10 mt-6 text-main font-medium font-main justify-around flex-wrap gap-20 max-lg:gap-4 text-base max-lg:text-xs">
+      <div className="navbar flex justify-left mx-10 items-center mt-6 text-main font-medium font-main justify-around flex-wrap gap-20 max-lg:gap-4 text-base max-lg:text-xs">
         <div className="basis-1/3 shrink-0 grow">
           <Logo class="navbar-height" />
         </div>
