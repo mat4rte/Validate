@@ -20,7 +20,7 @@ export default function ListTasks() {
 
   return (
     <>
-      <div id="list-tasks" className="flex flex-col gap-y-2">
+      <div id="list-tasks" className="flex flex-col gap-y-2 w-full">
         {listTasks}
       </div>
     </>

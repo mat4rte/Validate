@@ -17,7 +17,7 @@ function Task({ index, task }) {
   }
 
   return (
-    <div className="task mx-80">
+    <div className="task">
       <TaskHeader key={index} task={task} />
       <TaskBody key={index} task={task} />
     </div>
