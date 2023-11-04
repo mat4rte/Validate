@@ -3,7 +3,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login/index.js";
-import Tasks from "./pages/Tasks/index.js";
+import Tasks from "./pages/Tasks/tasks.js";
 import Nav from "./components/ui/Nav/nav.js";
 
 function App() {

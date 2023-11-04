@@ -1,0 +1,24 @@
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+  }
+
+.done{
+    background-color: #4FA095;
+}
+
+.circle:hover{
+
+}
+
+.dynamic-input-field{
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}

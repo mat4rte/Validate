@@ -7,9 +7,11 @@ function Nav() {
   return (
     <>
       <div className="navbar flex justify-left mx-10 items-center mt-6 text-main font-medium font-main justify-around flex-wrap gap-20 max-lg:gap-4 text-base max-lg:text-xs">
-        <a href="/" className="basis-1/3 shrink-0 grow">
-          <Logo class="navbar-height" />
-        </a>
+        <div className="basis-1/3 shrink-0 grow">
+          <a href="/">
+            <Logo class="navbar-height" />
+          </a>
+        </div>
         <div className="text-center hover:underline">
           <ButtonNavBar text="Calendar" url="/calendar" />
         </div>
