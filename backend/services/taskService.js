@@ -47,14 +47,15 @@ export default class TasksService {
     sql_query += this.prepare_sql_set_where(sql_query, body.SET, body.WHERE);
     console.log(sql_query);
 
-    return new Promise((resolve, reject) => {
-      this.connection.query(sql_query, (err, rows, fields) => {
-        if (err) reject(err);
-        else {
-          resolve(rows);
-        }
-      });
-    });
+  async updateTaskStatus(body) {
+    let sql_query =
+      "UPDATE Tasks SET done = " +
+      connection.escape(body.done) +
+      " WHERE id = " +
+      connection.escape(body.id);
+    console.log(sql_query);
+
+    return this.makeDBRequest(sql_query);
   }
 
   async deleteTask(body) {

@@ -20,6 +20,11 @@ router.post("/", (req, res) => {
   exec_function("createTask", req, res);
 });
 
+//Marca uma Task como feita
+router.put("/updatestatus", (req, res) => {
+  exec_function("updateTaskStatus", req, res);
+});
+
 //Apaga uma Task
 router.delete("/", (req, res) => {
   exec_function("deleteTask", req, res);
