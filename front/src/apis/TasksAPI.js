@@ -27,7 +27,7 @@ export async function getTasks() {
 }
 
 export async function createTask(task) {
-  return await resolve(
+  var f = await resolve(
     axios
       .post(baseURL + "/task", task)
       .then((response) => {
@@ -38,6 +38,8 @@ export async function createTask(task) {
         return error;
       })
   );
+
+  return f;
 }
 
 // where[args.key] = args.value;

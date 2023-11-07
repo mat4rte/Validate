@@ -4,9 +4,9 @@ import Line from "../ui/line.js";
 import { createTask } from "../../apis/TasksAPI.js";
 
 const Popup = ({ open, closePopup, updateTasks }) => {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const task = {
+    let task = {
       user_id: 1,
       name: e.target[0].value,
       description: e.target[1].value,
@@ -16,9 +16,14 @@ const Popup = ({ open, closePopup, updateTasks }) => {
       priority: e.target[5].value,
       date_limit: e.target[6].value,
     };
-    createTask(task);
-    updateTasks(task);
-    closePopup();
+    var response = await createTask(task);
+    console.log(response);
+    if (response.error) return console.log(response.error);
+    else {
+      task.id = response.data.id;
+      updateTasks(task);
+      closePopup();
+    }
   };
 
   return (
