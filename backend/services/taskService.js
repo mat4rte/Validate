@@ -68,6 +68,10 @@ export default class TasksService {
   }
 
   parse_request_body_create_task(body) {
+    Object.entries(body).forEach(([key, value]) => {
+      if (value == "") delete body[key];
+    });
+
     let keys = Object.keys(body).join();
 
     let values = Object.values(body)
