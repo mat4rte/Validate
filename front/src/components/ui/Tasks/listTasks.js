@@ -1,22 +1,21 @@
 import Task from "./taskFull";
 import React, { useEffect } from "react";
-import { getTasks } from "../../../apis/TasksAPI.js";
 
 import "./listTasks.css";
 
-export default function ListTasks() {
+export default function ListTasks({ tasks }) {
   const [listTasks, setListTasks] = React.useState([]);
 
   useEffect(() => {
-    async function fetchTasks() {
-      const tasks = await getTasks();
-      var tsksF = tasks.data.map((task, i) => {
-        return <Task key={i} task={task} />;
-      });
-      setListTasks(tsksF);
+    async function parseTasks() {
+      setListTasks(
+        tasks.map((task, i) => {
+          return <Task key={i} task={task} />;
+        })
+      );
     }
-    fetchTasks();
-  }, []);
+    parseTasks();
+  }, [tasks]);
 
   return (
     <>

@@ -26,28 +26,19 @@ export async function getTasks() {
   );
 }
 
-// export async function getTask(id) {}
-
-// function retrieveTasks(baseURL) {
-//   try {
-//     console.log("PEDIDO");
-//     return axios
-//       .get(baseURL)
-//       .then((response) => {
-//         if (!response) return false;
-//         return response.data;
-//       })
-//       .catch(function (error) {
-//         if (error.response) {
-//           console.log(error.response.data);
-//           throw new Error("Erro ao buscar as tarefas");
-//         }
-//       });
-//   } catch (error) {
-//     console.log("Error", error.message);
-//     return false;
-//   }
-// }
+export async function createTask(task) {
+  return await resolve(
+    axios
+      .post(baseURL + "/task", task)
+      .then((response) => {
+        if (!response) return false;
+        return response.data;
+      })
+      .catch((error) => {
+        return error;
+      })
+  );
+}
 
 // where[args.key] = args.value;
 function parseArgumentsForTasksAPI(url, args = []) {
