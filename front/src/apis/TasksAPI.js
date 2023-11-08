@@ -42,6 +42,34 @@ export async function createTask(task) {
   return f;
 }
 
+async function updateTask(task) {
+  return await resolve(
+    axios
+      .put(baseURL + "/task/", task)
+      .then((response) => {
+        if (!response) return false;
+        return response.data;
+      })
+      .catch((error) => {
+        return error;
+      })
+  );
+}
+
+export async function deleteTask(task) {
+  return await resolve(
+    axios
+      .delete(baseURL + "/task/" + task.id)
+      .then((response) => {
+        if (!response) return false;
+        return response.data;
+      })
+      .catch((error) => {
+        return error;
+      })
+  );
+}
+
 export async function updateTaskStatus(task) {
   return await resolve(
     axios
