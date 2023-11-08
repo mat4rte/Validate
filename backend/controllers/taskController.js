@@ -11,6 +11,12 @@ export default class TaskController {
     let tasks = await this.tasksService.getTasks(data.query);
     return tasks;
   }
+
+  async getTaskById(data) {
+    let task = await this.tasksService.getTaskById(data.params);
+    return task;
+  }
+
   async updateTaskStatus(data) {
     let status = await this.tasksService.updateTaskStatus(data.body);
     return status;

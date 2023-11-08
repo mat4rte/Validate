@@ -15,12 +15,7 @@ export default class TasksService {
     sql_query += sql_where;
 
     console.log(sql_query);
-    return new Promise((resolve, reject) => {
-      this.connection.query(sql_query, (err, rows, fields) => {
-        if (err) reject(err);
-        else resolve(rows);
-      });
-    });
+    return this.makeDBRequest(sql_query);
   }
 
   async createTask(body) {
@@ -31,21 +26,23 @@ export default class TasksService {
     let sql_query = "INSERT INTO Tasks (" + keys + ") VALUES ( " + values + ")";
 
     console.log(sql_query);
-    return new Promise((resolve, reject) => {
-      this.connection.query(sql_query, (err, rows, fields) => {
-        if (err) {
-          return reject(err);
-        } else {
-          return resolve(rows);
-        }
-      });
-    });
+    return this.makeDBRequest(sql_query);
+  }
+
+  async getTaskById(id) {
+    let sql_query = "SELECT * FROM Tasks WHERE " + connection.escape(id);
+    console.log(sql_query);
+
+    return this.makeDBRequest(sql_query);
   }
 
   async updateTask(body) {
     let sql_query = "UPDATE Tasks";
     sql_query += this.prepare_sql_set_where(sql_query, body.SET, body.WHERE);
     console.log(sql_query);
+
+    return this.makeDBRequest(sql_query);
+  }
 
   async updateTaskStatus(body) {
     let sql_query =
@@ -63,12 +60,8 @@ export default class TasksService {
     let sql_query = "DELETE FROM Tasks";
     sql_query += this.prepare_sql_set_where(sql_query, undefined, where);
     console.log(sql_query);
-    return new Promise((resolve, reject) => {
-      this.connection.query(sql_query, (err, rows, fields) => {
-        if (err) reject(err);
-        else resolve(rows);
-      });
-    });
+
+    return this.makeDBRequest(sql_query);
   }
 
   parse_request_body_create_task(body) {
@@ -136,5 +129,14 @@ export default class TasksService {
       i++;
     }
     return data_string;
+  }
+
+  makeDBRequest(sql_query) {
+    return new Promise((resolve, reject) => {
+      this.connection.query(sql_query, (err, rows, fields) => {
+        if (err) reject(err);
+        else resolve(rows);
+      });
+    });
   }
 }

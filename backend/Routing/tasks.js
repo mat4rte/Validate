@@ -15,6 +15,11 @@ router.get("/", (req, res) => {
   exec_function("getTasks", req, res);
 });
 
+//Get de Task por ID
+router.get("/:id", (req, res) => {
+  exec_function("getTaskById", req, res);
+});
+
 //Post de Task (cria uma task)
 router.post("/", (req, res) => {
   exec_function("createTask", req, res);
