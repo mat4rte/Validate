@@ -28,6 +28,18 @@
   color: #61dafb;
 }
 
+.button{
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4f709f;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
