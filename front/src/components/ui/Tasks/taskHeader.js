@@ -2,18 +2,11 @@ import React from "react";
 import "./taskHeader.css";
 import DynamicInput from "./dynamicInput.js";
 
-function TaskHeader({ index, task }) {
+function TaskHeader({ index, task, done, toggleDone }) {
   const [collapsed, setCollapsed] = React.useState(true);
-
-  const [done, setDone] = React.useState(task.done);
 
   function toggleCollapse() {
     setCollapsed(!collapsed);
-  }
-
-  function toggleDone() {
-    console.log("toggleDone", done);
-    setDone(!done);
   }
 
   function handleInputChange() {
@@ -25,7 +18,7 @@ function TaskHeader({ index, task }) {
       <div className="flex flex-row gap-x-4">
         <button
           onClick={toggleDone}
-          className={"check circle" + (done === true ? " done" : "")}
+          className={"check circle" + (task.done ? " done" : "")}
         ></button>
         <DynamicInput
           type={"text"}

@@ -2,6 +2,7 @@ import React from "react";
 import "./taskFull.css";
 import TaskHeader from "./taskHeader";
 import TaskBody from "./taskBody";
+import { updateTaskStatus } from "../../../apis/TasksAPI";
 
 function Task({ index, task }) {
   const [collapsed, setCollapsed] = React.useState(true);
@@ -12,13 +13,20 @@ function Task({ index, task }) {
     setCollapsed(!collapsed);
   }
 
-  function toggleDone() {
+  async function toggleDone() {
     setDone(!done);
+    if (done) {
+      task.done = false;
+    } else {
+      task.done = true;
+    }
+
+    await updateTaskStatus(task);
   }
 
   return (
     <div className="task">
-      <TaskHeader key={index} task={task} />
+      <TaskHeader key={index} task={task} done={done} toggleDone={toggleDone} />
       <TaskBody key={index} task={task} />
     </div>
   );

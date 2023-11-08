@@ -42,6 +42,23 @@ export async function createTask(task) {
   return f;
 }
 
+export async function updateTaskStatus(task) {
+  return await resolve(
+    axios
+      .put(baseURL + "/task/updatestatus", {
+        id: task.id,
+        done: task.done,
+      })
+      .then((response) => {
+        if (!response) return false;
+        return response.data;
+      })
+      .catch((error) => {
+        return error;
+      })
+  );
+}
+
 // where[args.key] = args.value;
 function parseArgumentsForTasksAPI(url, args = []) {
   if (args.length === 0) return url;
