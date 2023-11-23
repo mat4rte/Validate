@@ -3,14 +3,14 @@ import React, { useEffect } from "react";
 
 import "./listTasks.css";
 
-export default function ListTasks({ tasks }) {
+export default function ListTasks({ tasks, deleteTaskLocal }) {
   const [listTasks, setListTasks] = React.useState([]);
 
   useEffect(() => {
     async function parseTasks() {
       setListTasks(
         tasks.map((task, i) => {
-          return <Task key={i} task={task} />;
+          return <Task key={i} task={task} deleteTaskLocal={deleteTaskLocal} />;
         })
       );
     }

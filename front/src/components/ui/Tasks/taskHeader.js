@@ -2,13 +2,7 @@ import React from "react";
 import "./taskHeader.css";
 import DynamicInput from "./dynamicInput.js";
 
-function TaskHeader({ index, task, done, toggleDone }) {
-  const [collapsed, setCollapsed] = React.useState(true);
-
-  function toggleCollapse() {
-    setCollapsed(!collapsed);
-  }
-
+function TaskHeader({ index, task, done, toggleDone, toggleCollapse }) {
   function handleInputChange() {
     console.log("handleInputChange");
   }

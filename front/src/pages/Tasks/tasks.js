@@ -10,6 +10,10 @@ function Tasks() {
     setTasks([...tasks, newTask]);
   };
 
+  const deleteTaskLocal = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   useEffect(() => {
     const retrieveTasks = async () => {
       const tasksTemp = await getTasks();
@@ -21,7 +25,7 @@ function Tasks() {
   return (
     <>
       <div className="tasks-page flex flex-col items-center mx-60 gap-y-8">
-        <ListTasks tasks={tasks} />
+        <ListTasks tasks={tasks} deleteTaskLocal={deleteTaskLocal} />
         <NewTask insertTask={insertTask} />
       </div>
     </>
