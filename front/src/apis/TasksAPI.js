@@ -59,7 +59,11 @@ async function updateTask(task) {
 export async function deleteTask(task) {
   return await resolve(
     axios
-      .delete(baseURL + "/task/" + task.id)
+      .delete(baseURL + "/task/", {
+        data: {
+          id: task.id,
+        },
+      })
       .then((response) => {
         if (!response) return false;
         return response.data;
