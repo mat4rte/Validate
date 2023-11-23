@@ -17,6 +17,11 @@ export default class TaskController {
     return task;
   }
 
+  async getUnfinishedTasks(data) {
+    let tasks = await this.tasksService.getUnfinishedTasks();
+    return tasks;
+  }
+
   async updateTaskStatus(data) {
     let status = await this.tasksService.updateTaskStatus(data.body);
     return status;

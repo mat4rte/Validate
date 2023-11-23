@@ -18,6 +18,14 @@ export default class TasksService {
     return this.makeDBRequest(sql_query);
   }
 
+  async getUnfinishedTasks() {
+    let select = "*";
+    let sql_query = "SELECT " + select + " FROM Tasks";
+    let sql_where = " WHERE done = 0";
+    console.log(sql_query + sql_where);
+    return this.makeDBRequest(sql_query + sql_where);
+  }
+
   async createTask(body) {
     if (body == undefined) return false;
     let parsed_body = this.parse_request_body_create_task(body);

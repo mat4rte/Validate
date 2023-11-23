@@ -15,6 +15,11 @@ router.get("/", (req, res) => {
   exec_function("getTasks", req, res);
 });
 
+//Get de Tasks unfinished
+router.get("/unfinished", (req, res) => {
+  exec_function("getUnfinishedTasks", req, res);
+});
+
 //Get de Task por ID
 router.get("/:id", (req, res) => {
   exec_function("getTaskById", req, res);
