@@ -42,10 +42,10 @@ export async function createTask(task) {
   return f;
 }
 
-async function updateTask(task) {
+export async function updateTask(task) {
   return await resolve(
     axios
-      .put(baseURL + "/task/", task)
+      .patch(baseURL + "/task/", task)
       .then((response) => {
         if (!response) return false;
         return response.data;
