@@ -20,7 +20,13 @@ export default function ListTasks({ tasks }) {
   return (
     <>
       <div id="list-tasks" className="flex flex-col gap-y-2 w-full">
-        {listTasks}
+        {listTasks && listTasks.length > 0 ? (
+          listTasks
+        ) : (
+          <div className="text-white text-2xl font-bold my-5">
+            No tasks to show
+          </div>
+        )}
       </div>
     </>
   );
