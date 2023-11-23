@@ -38,7 +38,7 @@ export default class TasksService {
 
   async updateTask(body) {
     let sql_query = "UPDATE Tasks";
-    sql_query += this.prepare_sql_set_where(sql_query, body.SET, body.WHERE);
+    sql_query += this.prepare_sql_set_where(sql_query, body.set, body.where);
     console.log(sql_query);
 
     return this.makeDBRequest(sql_query);
