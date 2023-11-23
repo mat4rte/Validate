@@ -3,9 +3,9 @@ import mysql from "mysql";
 //TODO: criar env vars com dados
 export const connection = mysql.createConnection({
   host: "localhost",
-  user: "backend_server",
+  user: "mata",
   password: "password",
-  database: "validate",
+  database: "Validate",
 });
 
 connection.connect();
