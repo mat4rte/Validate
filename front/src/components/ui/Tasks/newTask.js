@@ -1,7 +1,7 @@
 import React from "react";
-import Popup from "../popup";
+import CreateTaskPopup from "../CreateTaskPopup";
 
-export default function NewTask({ updateTasks }) {
+export default function NewTask({ insertTask }) {
   const [open, setOpen] = React.useState(false);
 
   const closePopup = () => {
@@ -15,7 +15,11 @@ export default function NewTask({ updateTasks }) {
 
   return (
     <>
-      <Popup open={open} closePopup={closePopup} updateTasks={updateTasks} />
+      <CreateTaskPopup
+        open={open}
+        closePopup={closePopup}
+        insertTask={insertTask}
+      />
       <div>
         <button
           onClick={openPopup}

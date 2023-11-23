@@ -6,7 +6,7 @@ import { getTasks } from "../../apis/TasksAPI";
 function Tasks() {
   const [tasks, setTasks] = React.useState([]);
 
-  const updateTasks = (newTask) => {
+  const insertTask = (newTask) => {
     setTasks([...tasks, newTask]);
   };
 
@@ -22,7 +22,7 @@ function Tasks() {
     <>
       <div className="tasks-page flex flex-col items-center mx-60 gap-y-8">
         <ListTasks tasks={tasks} />
-        <NewTask updateTasks={updateTasks} />
+        <NewTask insertTask={insertTask} />
       </div>
     </>
   );

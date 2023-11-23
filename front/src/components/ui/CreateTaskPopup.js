@@ -1,9 +1,9 @@
 import React from "react";
 import "./popup.css";
-import Line from "../ui/line.js";
+import Line from "./line.js";
 import { createTask } from "../../apis/TasksAPI.js";
 
-const Popup = ({ open, closePopup, updateTasks }) => {
+const CreateTaskPopup = ({ open, closePopup, insertTask }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let task = {
@@ -21,7 +21,7 @@ const Popup = ({ open, closePopup, updateTasks }) => {
     if (response.error) return console.log(response.error);
     else {
       task.id = response.data.id;
-      updateTasks(task);
+      insertTask(task);
       closePopup();
     }
   };
@@ -100,7 +100,7 @@ const Popup = ({ open, closePopup, updateTasks }) => {
   );
 };
 
-export default Popup;
+export default CreateTaskPopup;
 
 //Form fields for creating new task
 //name
