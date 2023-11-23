@@ -14,37 +14,19 @@ function TaskHeader({ index, task, done, toggleDone }) {
   }
 
   return (
-    <div className="task-header flex flex-row justify-between bg-main rounded-3xl py-4 px-8 text-slate-100 align-center">
-      <div className="flex flex-row gap-x-4">
+    <div className="task-header flex flex-row justify-between bg-main rounded-3xl py-4 px-8 text-slate-100 align-center relative z-10">
+      <div className="flex flex-row gap-x-4 items-center">
         <button
           onClick={toggleDone}
           className={"check circle" + (task.done ? " done" : "")}
         ></button>
-        <DynamicInput
-          type={"text"}
-          name="name"
-          value={task.name}
-          onChange={handleInputChange}
-          placeholder="Task Name"
-          className="name input-field"
-        />
+        <span
+          className={"name" + (task.done ? " line-through text-slate-300" : "")}
+        >
+          {task.name}
+        </span>
       </div>
       <div className="flex flex-row gap-x-4">
-        {task.estimated_duration > 0 ? (
-          <div className="flex flex-row items-center gap-x-2">
-            <DynamicInput
-              type={"number"}
-              name="estimated_duration"
-              value={task.estimated_duration}
-              onChange={handleInputChange}
-              placeholder="Duration"
-              className="duration input-field"
-            />
-            <span className="duration">min</span>
-          </div>
-        ) : (
-          ""
-        )}
         <div className="date flex flex-row gap-x-1 bg-[#D9D9D9] rounded-full text-black px-2 items-center">
           {task.date_limit ? (
             <div className="day">{task.date_limit.split("T")[0]}</div>
