@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ListTasks from "../../components/ui/Tasks/listTasks";
 import NewTask from "../../components/ui/Tasks/newTask";
-import { getTasks } from "../../apis/TasksAPI";
+import { getTasksUnfinished } from "../../apis/TasksAPI";
 
 function Tasks() {
   const [tasks, setTasks] = React.useState([]);
@@ -16,7 +16,7 @@ function Tasks() {
 
   useEffect(() => {
     const retrieveTasks = async () => {
-      const tasksTemp = await getTasks();
+      const tasksTemp = await getTasksUnfinished();
       setTasks(tasksTemp.data);
     };
     retrieveTasks();

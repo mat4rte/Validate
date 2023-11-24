@@ -26,6 +26,17 @@ export async function getTasks() {
   );
 }
 
+export async function getTasksUnfinished() {
+  return await resolve(
+    axios
+      .get(parseArgumentsForTasksAPI(baseURL + "/task/unfinished"))
+      .then((response) => {
+        if (!response) return false;
+        return response.data;
+      })
+  );
+}
+
 export async function createTask(task) {
   var f = await resolve(
     axios
