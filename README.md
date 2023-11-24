@@ -1,6 +1,6 @@
 # Validate
 
-Validate is a productivity-focused web application for managing tasks. This project includes both a backend API built with Express.js and a frontend application built with React.
+Validate is a simple productivity-focused web application for managing tasks. This project includes both a backend API built with Express.js and a frontend application built with React.
 
 ## Getting Started
 
