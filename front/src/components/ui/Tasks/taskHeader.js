@@ -1,12 +1,7 @@
 import React from "react";
 import "./taskHeader.css";
-import DynamicInput from "./dynamicInput.js";
 
 function TaskHeader({ index, task, done, toggleDone, toggleCollapse }) {
-  function handleInputChange() {
-    console.log("handleInputChange");
-  }
-
   return (
     <div className="task-header flex flex-row justify-between bg-main rounded-3xl py-4 px-8 text-slate-100 align-center relative z-10">
       <div className="flex flex-row gap-x-4 items-center">
